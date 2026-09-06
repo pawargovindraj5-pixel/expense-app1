@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
     "name": "my_first_project",
     "short_name": "my_first_project",
+=======
+    "name": "expense_app",
+    "short_name": "expense_app",
+>>>>>>> 9242e08 (update code)
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

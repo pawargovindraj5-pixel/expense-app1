@@ -1,8 +1,16 @@
 // lib/main.dart
+<<<<<<< HEAD
 import 'package:flutter/material.dart';
 import 'models/expense.dart';
 import 'widgets/expenses_item.dart';
 import 'widgets/new_expense.dart';
+=======
+
+import 'package:flutter/material.dart';
+import 'expense.dart';
+import 'expense_item.dart';
+import 'new_expense.dart';
+>>>>>>> 9242e08 (update code)
 
 final ColorScheme kColorScheme = ColorScheme.fromSeed(
   seedColor: const Color.fromARGB(255, 96, 59, 181),
@@ -37,12 +45,21 @@ void main() {
           ),
         ),
         textTheme: ThemeData().textTheme.copyWith(
+<<<<<<< HEAD
           titleLarge: TextStyle(
             fontWeight: FontWeight.bold,
             color: kColorScheme.onSecondaryContainer,
             fontSize: 16,
           ),
         ),
+=======
+              titleLarge: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: kColorScheme.onSecondaryContainer,
+                fontSize: 16,
+              ),
+            ),
+>>>>>>> 9242e08 (update code)
       ),
       themeMode: ThemeMode.system,
       home: const ExpensesScreen(),
@@ -159,7 +176,11 @@ class _ExpensesScreenState extends State<ExpensesScreen> {
               gradient: LinearGradient(
                 colors: [
                   Theme.of(context).colorScheme.primary.withOpacity(0.3),
+<<<<<<< HEAD
                   Theme.of(context).colorScheme.primary.withOpacity(0.05),
+=======
+                  Theme.of(context).colorScheme.primary.withOpacity(0.05)
+>>>>>>> 9242e08 (update code)
                 ],
                 begin: Alignment.bottomCenter,
                 end: Alignment.topCenter,
@@ -186,11 +207,21 @@ class _ExpensesScreenState extends State<ExpensesScreen> {
                     Icon(Icons.flight_takeoff),
                     Icon(Icons.work),
                   ],
+<<<<<<< HEAD
                 ),
               ],
             ),
           ),
           Expanded(child: mainContent),
+=======
+                )
+              ],
+            ),
+          ),
+          Expanded(
+            child: mainContent,
+          ),
+>>>>>>> 9242e08 (update code)
         ],
       ),
     );
@@ -218,4 +249,8 @@ class ChartBar extends StatelessWidget {
       ),
     );
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 9242e08 (update code)
