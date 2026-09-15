@@ -1,0 +1,104 @@
+{"template":"app"}import 'dart:math';
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const DiceApp());
+}
+
+class DiceApp extends StatelessWidget {
+  const DiceApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        backgroundColor: Colors.deepPurple,
+        appBar: AppBar(
+          title: const Text('Dice Roller'),
+          backgroundColor: Colors.deepPurple.shade800,
+          foregroundColor: Colors.white,
+          centerTitle: true,
+        ),
+        body: const DiceRollerPage(),
+      ),
+    );
+  }
+}
+
+class DiceRollerPage extends StatefulWidget {
+  const DiceRollerPage({super.key});
+
+  @override
+  State<DiceRollerPage> createState() => _DiceRollerPageState();
+}
+
+class _DiceRollerPageState extends State<DiceRollerPage> {
+  // Holds the current dice number (1 to 6)
+  int diceNumber = 1;
+
+  // Function to generate a random number between 1 and 6
+  void rollDice() {
+    setState(() {
+      // Random().nextInt(6) gives 0-5, so +1 makes it 1-6
+      diceNumber = Random().nextInt(6) + 1;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          // Tapping the dice container triggers a roll
+          GestureDetector(
+            onTap: rollDice,
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 150),
+              width: 160,
+              height: 160,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(24),
+                boxShadow: const [
+                  BoxShadow(
+                    color: Colors.black26,
+                    blurRadius: 12,
+                    offset: Offset(0, 6),
+                  )
+                ],
+              ),
+              child: Center(
+                child: Text(
+                  '$diceNumber',
+                  style: TextStyle(
+                    fontSize: 72,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.deepPurple.shade900,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 40),
+          // Action button
+          ElevatedButton.icon(
+            onPressed: rollDice,
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.amber,
+              foregroundColor: Colors.black,
+              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+              textStyle: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            icon: const Icon(Icons.casino),
+            label: const Text('Roll Dice'),
+          ),
+        ],
+      ),
+    );
+  }
+}
