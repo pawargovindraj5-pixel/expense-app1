@@ -38,12 +38,12 @@ void main() {
           ),
         ),
         textTheme: ThemeData().textTheme.copyWith(
-              titleLarge: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: kColorScheme.onSecondaryContainer,
-                fontSize: 16,
-              ),
-            ),
+          titleLarge: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: kColorScheme.onSecondaryContainer,
+            fontSize: 16,
+          ),
+        ),
       ),
       themeMode: ThemeMode.system,
       home: const ExpensesScreen(),
@@ -62,13 +62,13 @@ class _ExpensesScreenState extends State<ExpensesScreen> {
   final List<Expense> _registeredExpenses = [
     Expense(
       title: 'Flutter Course',
-      amount: 1.99,
+      amount: 15.99,
       date: DateTime.now(),
       category: Category.work,
     ),
     Expense(
       title: 'Cinema',
-      amount: 1.6,
+      amount: 13.6,
       date: DateTime.now(),
       category: Category.leisure,
     ),
@@ -160,7 +160,7 @@ class _ExpensesScreenState extends State<ExpensesScreen> {
               gradient: LinearGradient(
                 colors: [
                   Theme.of(context).colorScheme.primary.withValues(alpha: 0.3),
-                  Theme.of(context).colorScheme.primary.withValues(alpha: 0.05)
+                  Theme.of(context).colorScheme.primary.withValues(alpha: 0.05),
                 ],
                 begin: Alignment.bottomCenter,
                 end: Alignment.topCenter,
@@ -187,13 +187,11 @@ class _ExpensesScreenState extends State<ExpensesScreen> {
                     Icon(Icons.flight_takeoff),
                     Icon(Icons.work),
                   ],
-                )
+                ),
               ],
             ),
           ),
-          Expanded(
-            child: mainContent,
-          ),
+          Expanded(child: mainContent),
         ],
       ),
     );
@@ -215,7 +213,9 @@ class ChartBar extends StatelessWidget {
           decoration: BoxDecoration(
             shape: BoxShape.rectangle,
             borderRadius: const BorderRadius.vertical(top: Radius.circular(8)),
-            color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.65),
+            color: Theme.of(
+              context,
+            ).colorScheme.primary.withValues(alpha: 0.65),
           ),
         ),
       ),
