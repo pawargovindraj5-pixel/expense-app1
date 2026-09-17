@@ -143,7 +143,7 @@ class _ExpensesScreenState extends State<ExpensesScreen> {
         itemBuilder: (ctx, index) => Dismissible(
           key: ValueKey(_registeredExpenses[index]),
           background: Container(
-            color: Theme.of(context).colorScheme.error.withOpacity(0.75),
+            color: Theme.of(context).colorScheme.error.withValues(alpha: 0.75),
             margin: const EdgeInsets.symmetric(horizontal: 16),
           ),
           onDismissed: (direction) {
@@ -175,12 +175,17 @@ class _ExpensesScreenState extends State<ExpensesScreen> {
               borderRadius: BorderRadius.circular(12),
               gradient: LinearGradient(
                 colors: [
+<<<<<<< HEAD
                   Theme.of(context).colorScheme.primary.withOpacity(0.3),
 <<<<<<< HEAD
                   Theme.of(context).colorScheme.primary.withOpacity(0.05),
 =======
                   Theme.of(context).colorScheme.primary.withOpacity(0.05)
 >>>>>>> 9242e08 (update code)
+=======
+                  Theme.of(context).colorScheme.primary.withValues(alpha: 0.3),
+                  Theme.of(context).colorScheme.primary.withValues(alpha: 0.05)
+>>>>>>> 2cb9d15 (My Expense App initial commit)
                 ],
                 begin: Alignment.bottomCenter,
                 end: Alignment.topCenter,
@@ -243,7 +248,7 @@ class ChartBar extends StatelessWidget {
           decoration: BoxDecoration(
             shape: BoxShape.rectangle,
             borderRadius: const BorderRadius.vertical(top: Radius.circular(8)),
-            color: Theme.of(context).colorScheme.primary.withOpacity(0.65),
+            color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.65),
           ),
         ),
       ),
