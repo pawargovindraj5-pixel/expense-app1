@@ -46,12 +46,16 @@ void main() {
         ),
         textTheme: ThemeData().textTheme.copyWith(
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ffef77e (refactor: improve code formatting and update cinema expense amount)
           titleLarge: TextStyle(
             fontWeight: FontWeight.bold,
             color: kColorScheme.onSecondaryContainer,
             fontSize: 16,
           ),
         ),
+<<<<<<< HEAD
 =======
               titleLarge: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -60,6 +64,8 @@ void main() {
               ),
             ),
 >>>>>>> 9242e08 (update code)
+=======
+>>>>>>> ffef77e (refactor: improve code formatting and update cinema expense amount)
       ),
       themeMode: ThemeMode.system,
       home: const ExpensesScreen(),
@@ -84,7 +90,7 @@ class _ExpensesScreenState extends State<ExpensesScreen> {
     ),
     Expense(
       title: 'Cinema',
-      amount: 1.67,
+      amount: 1.9,
       date: DateTime.now(),
       category: Category.leisure,
     ),
@@ -184,8 +190,12 @@ class _ExpensesScreenState extends State<ExpensesScreen> {
 >>>>>>> 9242e08 (update code)
 =======
                   Theme.of(context).colorScheme.primary.withValues(alpha: 0.3),
+<<<<<<< HEAD
                   Theme.of(context).colorScheme.primary.withValues(alpha: 0.05)
 >>>>>>> 2cb9d15 (My Expense App initial commit)
+=======
+                  Theme.of(context).colorScheme.primary.withValues(alpha: 0.05),
+>>>>>>> ffef77e (refactor: improve code formatting and update cinema expense amount)
                 ],
                 begin: Alignment.bottomCenter,
                 end: Alignment.topCenter,
@@ -213,6 +223,7 @@ class _ExpensesScreenState extends State<ExpensesScreen> {
                     Icon(Icons.work),
                   ],
 <<<<<<< HEAD
+<<<<<<< HEAD
                 ),
               ],
             ),
@@ -227,6 +238,13 @@ class _ExpensesScreenState extends State<ExpensesScreen> {
             child: mainContent,
           ),
 >>>>>>> 9242e08 (update code)
+=======
+                ),
+              ],
+            ),
+          ),
+          Expanded(child: mainContent),
+>>>>>>> ffef77e (refactor: improve code formatting and update cinema expense amount)
         ],
       ),
     );
@@ -248,14 +266,20 @@ class ChartBar extends StatelessWidget {
           decoration: BoxDecoration(
             shape: BoxShape.rectangle,
             borderRadius: const BorderRadius.vertical(top: Radius.circular(8)),
-            color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.65),
+            color: Theme.of(
+              context,
+            ).colorScheme.primary.withValues(alpha: 0.65),
           ),
         ),
       ),
     );
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 }
 >>>>>>> 9242e08 (update code)
+=======
+}
+>>>>>>> ffef77e (refactor: improve code formatting and update cinema expense amount)
