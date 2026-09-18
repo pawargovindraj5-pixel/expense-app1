@@ -1,16 +1,7 @@
-// lib/main.dart
-<<<<<<< HEAD
 import 'package:flutter/material.dart';
 import 'models/expense.dart';
 import 'widgets/expenses_item.dart';
 import 'widgets/new_expense.dart';
-=======
-
-import 'package:flutter/material.dart';
-import 'expense.dart';
-import 'expense_item.dart';
-import 'new_expense.dart';
->>>>>>> 9242e08 (update code)
 
 final ColorScheme kColorScheme = ColorScheme.fromSeed(
   seedColor: const Color.fromARGB(255, 96, 59, 181),
@@ -32,7 +23,7 @@ void main() {
       ),
       theme: ThemeData().copyWith(
         colorScheme: kColorScheme,
-        appBarTheme: const AppBarTheme().copyWith(
+        appBarTheme: AppBarTheme(
           backgroundColor: kColorScheme.primary,
           foregroundColor: kColorScheme.onPrimary,
         ),
@@ -45,27 +36,12 @@ void main() {
           ),
         ),
         textTheme: ThemeData().textTheme.copyWith(
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> ffef77e (refactor: improve code formatting and update cinema expense amount)
           titleLarge: TextStyle(
             fontWeight: FontWeight.bold,
             color: kColorScheme.onSecondaryContainer,
             fontSize: 16,
           ),
         ),
-<<<<<<< HEAD
-=======
-              titleLarge: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: kColorScheme.onSecondaryContainer,
-                fontSize: 16,
-              ),
-            ),
->>>>>>> 9242e08 (update code)
-=======
->>>>>>> ffef77e (refactor: improve code formatting and update cinema expense amount)
       ),
       themeMode: ThemeMode.system,
       home: const ExpensesScreen(),
@@ -90,24 +66,20 @@ class _ExpensesScreenState extends State<ExpensesScreen> {
     ),
     Expense(
       title: 'Cinema',
-      amount: 1.9,
+      amount: 1.90,
       date: DateTime.now(),
       category: Category.leisure,
     ),
   ];
 
-  // Function to open the bottom sheet modal for adding a new expense
   void _openAddExpenseOverlay() {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
-      builder: (ctx) {
-        return NewExpense(onAddExpense: _addExpense);
-      },
+      builder: (ctx) => NewExpense(onAddExpense: _addExpense),
     );
   }
 
-  // Function that adds the new expense to the list and updates UI
   void _addExpense(Expense expense) {
     setState(() {
       _registeredExpenses.add(expense);
@@ -116,6 +88,7 @@ class _ExpensesScreenState extends State<ExpensesScreen> {
 
   void _removeExpense(Expense expense) {
     final expenseIndex = _registeredExpenses.indexOf(expense);
+
     setState(() {
       _registeredExpenses.remove(expense);
     });
@@ -152,7 +125,7 @@ class _ExpensesScreenState extends State<ExpensesScreen> {
             color: Theme.of(context).colorScheme.error.withValues(alpha: 0.75),
             margin: const EdgeInsets.symmetric(horizontal: 16),
           ),
-          onDismissed: (direction) {
+          onDismissed: (_) {
             _removeExpense(_registeredExpenses[index]);
           },
           child: ExpenseItem(_registeredExpenses[index]),
@@ -165,7 +138,7 @@ class _ExpensesScreenState extends State<ExpensesScreen> {
         title: const Text('Flutter ExpenseTracker'),
         actions: [
           IconButton(
-            onPressed: _openAddExpenseOverlay, // Opens the add expense form
+            onPressed: _openAddExpenseOverlay,
             icon: const Icon(Icons.add),
           ),
         ],
@@ -181,21 +154,8 @@ class _ExpensesScreenState extends State<ExpensesScreen> {
               borderRadius: BorderRadius.circular(12),
               gradient: LinearGradient(
                 colors: [
-<<<<<<< HEAD
-                  Theme.of(context).colorScheme.primary.withOpacity(0.3),
-<<<<<<< HEAD
-                  Theme.of(context).colorScheme.primary.withOpacity(0.05),
-=======
-                  Theme.of(context).colorScheme.primary.withOpacity(0.05)
->>>>>>> 9242e08 (update code)
-=======
                   Theme.of(context).colorScheme.primary.withValues(alpha: 0.3),
-<<<<<<< HEAD
-                  Theme.of(context).colorScheme.primary.withValues(alpha: 0.05)
->>>>>>> 2cb9d15 (My Expense App initial commit)
-=======
                   Theme.of(context).colorScheme.primary.withValues(alpha: 0.05),
->>>>>>> ffef77e (refactor: improve code formatting and update cinema expense amount)
                 ],
                 begin: Alignment.bottomCenter,
                 end: Alignment.topCenter,
@@ -204,47 +164,29 @@ class _ExpensesScreenState extends State<ExpensesScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Expanded(
+                const Expanded(
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.end,
-                    children: const [
+                    children: [
                       Expanded(child: ChartBar(fill: 0.6)),
                       Expanded(child: ChartBar(fill: 0.9)),
                     ],
                   ),
                 ),
                 const SizedBox(height: 12),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: const [
+                  children: [
                     Icon(Icons.fastfood),
                     Icon(Icons.movie),
                     Icon(Icons.flight_takeoff),
                     Icon(Icons.work),
                   ],
-<<<<<<< HEAD
-<<<<<<< HEAD
                 ),
               ],
             ),
           ),
           Expanded(child: mainContent),
-=======
-                )
-              ],
-            ),
-          ),
-          Expanded(
-            child: mainContent,
-          ),
->>>>>>> 9242e08 (update code)
-=======
-                ),
-              ],
-            ),
-          ),
-          Expanded(child: mainContent),
->>>>>>> ffef77e (refactor: improve code formatting and update cinema expense amount)
         ],
       ),
     );
@@ -264,7 +206,6 @@ class ChartBar extends StatelessWidget {
         heightFactor: fill,
         child: DecoratedBox(
           decoration: BoxDecoration(
-            shape: BoxShape.rectangle,
             borderRadius: const BorderRadius.vertical(top: Radius.circular(8)),
             color: Theme.of(
               context,
@@ -274,12 +215,4 @@ class ChartBar extends StatelessWidget {
       ),
     );
   }
-<<<<<<< HEAD
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 9242e08 (update code)
-=======
-}
->>>>>>> ffef77e (refactor: improve code formatting and update cinema expense amount)
