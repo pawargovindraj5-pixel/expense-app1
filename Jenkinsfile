@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    options {
+        skipDefaultCheckout(true)
+    }
+
     environment {
         PATH = "C:/src/flutter/bin;${env.PATH}"
     }
@@ -15,6 +19,7 @@ pipeline {
         stage('Check Flutter') {
             steps {
                 bat '''
+                    git config --global --add safe.directory C:/src/flutter
                     echo PATH=%PATH%
                     where flutter
                     flutter --version
