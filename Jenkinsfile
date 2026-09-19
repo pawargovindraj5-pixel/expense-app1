@@ -12,6 +12,17 @@ pipeline {
             }
         }
 
+        stage('Check Flutter') {
+            steps {
+                bat '''
+                    echo PATH=%PATH%
+                    where flutter
+                    flutter --version
+                    flutter doctor -v
+                '''
+            }
+        }
+
         stage('Install Dependencies') {
             steps {
                 bat 'flutter pub get'
