@@ -24,7 +24,7 @@ pipeline {
                     git config --global --add safe.directory C:/src/flutter
                     echo PATH=%PATH%
                     where flutter
-                    if not exist "%ANDROID_HOME%\platform-tools" (
+                    if not exist "%ANDROID_HOME%/platform-tools" (
                         echo Android SDK not found at %ANDROID_HOME%
                         exit /b 1
                     )
