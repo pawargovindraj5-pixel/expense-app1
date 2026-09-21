@@ -6,7 +6,9 @@ pipeline {
     }
 
     environment {
-        PATH = "C:/src/flutter/bin;${env.PATH}"
+        ANDROID_HOME = 'C:/Users/govin/AppData/Local/Android/sdk'
+        ANDROID_SDK_ROOT = 'C:/Users/govin/AppData/Local/Android/sdk'
+        PATH = "C:/src/flutter/bin;C:/Users/govin/AppData/Local/Android/sdk/platform-tools;C:/Users/govin/AppData/Local/Android/sdk/cmdline-tools/latest/bin;${env.PATH}"
     }
 
     stages {
@@ -22,6 +24,11 @@ pipeline {
                     git config --global --add safe.directory C:/src/flutter
                     echo PATH=%PATH%
                     where flutter
+                    if not exist "%ANDROID_HOME%\platform-tools" (
+                        echo Android SDK not found at %ANDROID_HOME%
+                        exit /b 1
+                    )
+                    echo ANDROID_HOME=%ANDROID_HOME%
                     flutter --version
                     flutter doctor -v
                 '''
